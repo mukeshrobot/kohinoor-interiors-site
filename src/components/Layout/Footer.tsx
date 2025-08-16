@@ -49,15 +49,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-gray-300">
                 <Phone size={18} />
-                <span>+1 (555) 123-4567</span>
+                <span>+ 91 9866652824</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <Mail size={18} />
-                <span>info@kohinoorinteriors.com</span>
+                <span>kohinoorinteriors09@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <MapPin size={18} />
-                <span>123 Design Street, City, State 12345</span>
+                <span>Plot No: 1/B-14 SV Co-Operative Industrial Estate, Balanagar Main Road, Hyderabad, Telangana, 500037</span>
               </div>
             </div>
           </div>

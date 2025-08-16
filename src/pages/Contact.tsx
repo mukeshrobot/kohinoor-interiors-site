@@ -175,8 +175,8 @@ const Contact = () => {
                         </div>
                         <div>
                           <h4 className="font-semibold text-primary">Phone</h4>
-                          <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                          <p className="text-sm text-muted-foreground">Mon-Fri: 9:00 AM - 6:00 PM</p>
+                          <p className="text-muted-foreground">+ 91 9866652824</p>
+                          <p className="text-sm text-muted-foreground">Mon-Sat: 9:30 AM - 6:00 PM</p>
                         </div>
                       </div>
 
@@ -186,7 +186,7 @@ const Contact = () => {
                         </div>
                         <div>
                           <h4 className="font-semibold text-primary">Email</h4>
-                          <p className="text-muted-foreground">info@kohinoorinteriors.com</p>
+                          <p className="text-muted-foreground">kohinoorinteriors09@gmail.com</p>
                           <p className="text-sm text-muted-foreground">We'll respond within 24 hours</p>
                         </div>
                       </div>
@@ -197,8 +197,8 @@ const Contact = () => {
                         </div>
                         <div>
                           <h4 className="font-semibold text-primary">Address</h4>
-                          <p className="text-muted-foreground">123 Design Street</p>
-                          <p className="text-muted-foreground">City, State 12345</p>
+                          <p className="text-muted-foreground">Plot No: 1/B-14 SV Co-Operative Industrial Estate</p>
+                          <p className="text-muted-foreground">Balanagar Main Road, Hyderabad, Telangana, 500037</p>
                         </div>
                       </div>
 
@@ -208,8 +208,7 @@ const Contact = () => {
                         </div>
                         <div>
                           <h4 className="font-semibold text-primary">Business Hours</h4>
-                          <p className="text-muted-foreground">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                          <p className="text-muted-foreground">Saturday: 10:00 AM - 4:00 PM</p>
+                          <p className="text-muted-foreground">Monday - Saturday: 9:30 AM - 6:00 PM</p>
                           <p className="text-muted-foreground">Sunday: Closed</p>
                         </div>
                       </div>

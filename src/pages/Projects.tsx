@@ -10,6 +10,21 @@ import officeImage from "@/assets/project-office.jpg";
 import lobbyImage from "@/assets/project-lobby.jpg";
 
 const Projects = () => {
+  const getProjectRoute = (title: string) => {
+    switch (title) {
+      case "Modern Kitchen":
+        return "/projects/modern-kitchen";
+      case "Cozy Bedroom":
+        return "/projects/cozy-bedroom";
+      case "Corporate Office":
+        return "/projects/corporate-office";
+      case "Luxury Lobby":
+        return "/projects/luxury-lobby";
+      default:
+        return "/projects";
+    }
+  };
+
   const projects = [
     {
       title: "Modern Kitchen",
@@ -70,7 +85,8 @@ const Projects = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {projects.map((project, index) => (
-                <Card key={index} className="group overflow-hidden shadow-elegant hover:shadow-gold transition-all duration-500 transform hover:-translate-y-2">
+                <Card key={index} className="group overflow-hidden shadow-elegant hover:shadow-gold transition-all duration-500 transform hover:-translate-y-2 cursor-pointer">
+                  <Link to={getProjectRoute(project.title)} className="block">
                   <div className="relative h-80 overflow-hidden">
                     <img 
                       src={project.image} 
@@ -101,9 +117,11 @@ const Projects = () => {
 
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <Button variant="gold" size="lg">
-                        <ExternalLink size={20} className="mr-2" />
-                        View Details
+                      <Button variant="gold" size="lg" asChild>
+                        <Link to={getProjectRoute(project.title)}>
+                          <ExternalLink size={20} className="mr-2" />
+                          View Details
+                        </Link>
                       </Button>
                     </div>
                   </div>
@@ -113,6 +131,7 @@ const Projects = () => {
                       {project.description}
                     </p>
                   </CardContent>
+                  </Link>
                 </Card>
               ))}
             </div>
