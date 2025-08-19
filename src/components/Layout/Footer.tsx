@@ -8,8 +8,27 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="text-2xl font-bold">
-              Kohinoor <span className="text-accent">Interiors</span>
+            <div className="flex items-center space-x-3">
+              <div className="w-12 h-12 rounded-lg overflow-hidden shadow-sm">
+                <img
+                  src="/logo.png"
+                  alt="Kohinoor Interiors Logo"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const fallback = target.nextElementSibling as HTMLElement;
+                    if (fallback) fallback.style.display = 'flex';
+                  }}
+                />
+                {/* Fallback if image doesn't load */}
+                <div className="w-full h-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg" style={{ display: 'none' }}>
+                  KI
+                </div>
+              </div>
+              <div className="text-2xl font-bold">
+                Kohinoor <span className="text-accent">Interiors</span>
+              </div>
             </div>
             <p className="text-gray-300">
               Transforming spaces with excellence. Over 15 years of experience in creating stunning interiors.

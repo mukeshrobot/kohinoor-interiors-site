@@ -31,7 +31,24 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-3">
+            <div className="w-12 h-12 rounded-lg overflow-hidden shadow-sm">
+              <img
+                src="/logo.png"
+                alt="Kohinoor Interiors Logo"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'flex';
+                }}
+              />
+              {/* Fallback if image doesn't load */}
+              <div className="w-full h-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg" style={{ display: 'none' }}>
+                KI
+              </div>
+            </div>
             <div className="text-2xl font-bold text-primary">
               Kohinoor <span className="text-accent">Interiors</span>
             </div>

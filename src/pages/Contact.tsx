@@ -6,10 +6,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import contactBgImage from "@/assets/contact-background.jpg";
+import GoogleMap from "@/components/GoogleMap";
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '@/config/emailjs';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -25,7 +28,9 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -38,20 +43,64 @@ const Contact = () => {
       return;
     }
 
-    // Simulate form submission
-    toast({
-      title: "Quote Request Sent!",
-      description: "Thank you for your interest. We'll get back to you within 24 hours.",
-    });
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Error",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
 
-    // Reset form
-    setFormData({
-      fullName: "",
-      email: "",
-      phone: "",
-      projectType: "",
-      message: "",
-    });
+    setIsSubmitting(true);
+
+    try {
+      // EmailJS configuration - you'll need to set these up
+      const templateParams = {
+        from_name: formData.fullName,
+        from_email: formData.email,
+        from_phone: formData.phone,
+        project_type: formData.projectType || 'Not specified',
+        message: formData.message,
+        to_name: 'Kohinoor Interiors Team',
+        reply_to: formData.email,
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        templateParams,
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+
+      // Show success message
+      toast({
+        title: "Quote Request Sent Successfully!",
+        description: "Thank you for your interest. We'll get back to you within 24 hours.",
+      });
+
+      // Reset form
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        projectType: "",
+        message: "",
+      });
+
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      toast({
+        title: "Email Sending Failed",
+        description: "There was an error sending your request. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -70,6 +119,98 @@ const Contact = () => {
                 Ready to transform your space? Let's discuss your project and bring your vision to life. 
                 Get a personalized quote today.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Owner Profile Section */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                {/* Owner Image */}
+                <div className="lg:col-span-1 flex justify-center lg:justify-start">
+                  <div className="relative">
+                    <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-2xl shadow-accent/20">
+                      <img
+                        src="/profile.jpg"
+                        alt="Kohinoor Interiors Owner"
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const fallback = target.nextElementSibling as HTMLElement;
+                          if (fallback) fallback.style.display = 'flex';
+                        }}
+                      />
+                      {/* Fallback if image doesn't load */}
+                      <div className="w-full h-full bg-gradient-to-br from-accent/20 to-accent/40 flex items-center justify-center" style={{ display: 'none' }}>
+                        <div className="text-center">
+                          <div className="w-24 h-24 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                          </div>
+                          <p className="text-primary font-semibold">Owner Profile</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Decorative Elements */}
+                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-accent rounded-full opacity-80"></div>
+                    <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary rounded-full opacity-60"></div>
+                    <div className="absolute top-1/2 -left-6 w-4 h-4 bg-accent rounded-full opacity-40 transform -translate-y-1/2"></div>
+                  </div>
+                </div>
+
+                {/* Company Description */}
+                <div className="lg:col-span-2 space-y-6">
+                  <div className="text-center lg:text-left">
+                    <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+                      Meet Our <span className="text-accent">Vision</span>
+                    </h2>
+                    <div className="w-24 h-1 bg-accent mx-auto lg:mx-0 mb-8"></div>
+                  </div>
+                  
+                  <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
+                    <p className="text-xl font-medium text-primary leading-relaxed">
+                      At <span className="text-accent font-semibold">Kohinoor Interiors Hyderabad</span>, we specialize in creating innovative, functional, and aesthetically captivating interior spaces across Residential, Commercial, Retail, and Corporate projects.
+                    </p>
+                    
+                    <p>
+                      Our approach combines creativity, precision, and practicality, ensuring that every design is not only visually striking but also tailored to enhance comfort, efficiency, and long-term value.
+                    </p>
+                    
+                    <p>
+                      From the initial concept and design consultation to detailed planning and flawless execution, we manage each project with a balance of artistic vision and technical expertise. Whether it's designing a dream home, a modern workplace, or a dynamic retail environment, we craft interiors that reflect individuality, strengthen brand identity, and inspire everyone who experiences them.
+                    </p>
+                    
+                    <p className="text-lg font-medium text-primary">
+                      With a commitment to quality craftsmanship, attention to detail, and timely delivery, we transform ideas into living, functional, and inspiring environments—bringing every project from concept to completion with excellence.
+                    </p>
+                  </div>
+
+                  {/* Company Highlights */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
+                    <div className="text-center p-4 bg-muted/50 rounded-lg">
+                      <div className="text-2xl font-bold text-accent mb-1">500+</div>
+                      <div className="text-sm text-muted-foreground">Projects Completed</div>
+                    </div>
+                    <div className="text-center p-4 bg-muted/50 rounded-lg">
+                      <div className="text-2xl font-bold text-accent mb-1">8+</div>
+                      <div className="text-sm text-muted-foreground">Years Experience</div>
+                    </div>
+                    <div className="text-center p-4 bg-muted/50 rounded-lg">
+                      <div className="text-2xl font-bold text-accent mb-1">100%</div>
+                      <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+                    </div>
+                    <div className="text-center p-4 bg-muted/50 rounded-lg">
+                      <div className="text-2xl font-bold text-accent mb-1">24/7</div>
+                      <div className="text-sm text-muted-foreground">Support Available</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -155,8 +296,21 @@ const Contact = () => {
                       />
                     </div>
 
-                    <Button type="submit" variant="gold" size="lg" className="w-full">
-                      Send Quote Request
+                    <Button 
+                      type="submit" 
+                      variant="gold" 
+                      size="lg" 
+                      className="w-full"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        'Send Quote Request'
+                      )}
                     </Button>
                   </form>
                 </CardContent>
@@ -216,15 +370,11 @@ const Contact = () => {
                   </CardContent>
                 </Card>
 
-                {/* Map Placeholder */}
+                {/* Interactive Google Map */}
                 <Card className="shadow-elegant">
                   <CardContent className="p-0">
-                    <div className="h-64 bg-muted rounded-lg flex items-center justify-center">
-                      <div className="text-center">
-                        <MapPin size={48} className="text-muted-foreground mx-auto mb-4" />
-                        <p className="text-muted-foreground">Interactive Map</p>
-                        <p className="text-sm text-muted-foreground">Visit us at our showroom</p>
-                      </div>
+                    <div className="h-80 bg-muted rounded-lg overflow-hidden">
+                      <GoogleMap />
                     </div>
                   </CardContent>
                 </Card>

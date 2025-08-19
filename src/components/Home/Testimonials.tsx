@@ -8,6 +8,18 @@ const Testimonials = () => {
 
   const testimonials = [
     {
+      name: "Sadhanandha Reddy",
+      role: "Homeowner",
+      content: "Kohinoor Interiors exceeded all our expectations! They transformed our living space into something truly magical. Their attention to detail and creative vision is absolutely outstanding. We're so grateful for their exceptional work!",
+      rating: 5,
+    },
+    {
+      name: "Soundarya",
+      role: "Property Owner",
+      content: "Working with Kohinoor Interiors was an amazing experience from start to finish. They understood our vision perfectly and delivered beyond what we imagined. The quality and craftsmanship are simply outstanding!",
+      rating: 5,
+    },
+    {
       name: "Sarah Johnson",
       role: "Homeowner",
       content: "Kohinoor Interiors transformed our home beyond our wildest dreams. Their attention to detail and creative vision is unmatched. We couldn't be happier with the results!",
