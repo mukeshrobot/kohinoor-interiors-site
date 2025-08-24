@@ -13,7 +13,7 @@ const Footer = () => {
                 <img
                   src="/logo.png"
                   alt="Kohinoor Interiors Logo"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
@@ -75,7 +75,7 @@ const Footer = () => {
                 <span>kohinoorinteriors09@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
-                <MapPin size={18} />
+                <MapPin size={55} />
                 <span>Plot No: 1/B-14 SV Co-Operative Industrial Estate, Balanagar Main Road, Hyderabad, Telangana, 500037</span>
               </div>
             </div>

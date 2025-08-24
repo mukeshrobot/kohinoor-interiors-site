@@ -14,17 +14,17 @@ const About = () => {
 
   const team = [
     {
-      name: "Rajesh Kumar",
+      name: "Muralidhar Reddy",
       role: "Founder & Lead Designer",
       description: "With over 15 years of experience in interior design and construction management.",
     },
     {
-      name: "Priya Sharma",
+      name: "Suma M",
       role: "Senior Architect",
       description: "Specializes in residential and commercial space planning with a focus on sustainability.",
     },
     {
-      name: "Arjun Patel",
+      name: "Dilip Kumar",
       role: "Project Manager",
       description: "Ensures every project is delivered on time and exceeds client expectations.",
     },

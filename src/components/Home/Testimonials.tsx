@@ -26,13 +26,13 @@ const Testimonials = () => {
       rating: 5,
     },
     {
-      name: "Michael Chen",
+      name: "Narayana Reddy",
       role: "Business Owner",
       content: "The office renovation was completed on time and exceeded all expectations. Our employees love the new workspace, and clients are constantly complimenting the design.",
       rating: 5,
     },
     {
-      name: "Emily Rodriguez",
+      name: "Venkateshwara Rao",
       role: "Property Developer",
       content: "Working with Kohinoor Interiors has been a game-changer for our luxury developments. Their expertise and professionalism are truly exceptional.",
       rating: 5,
