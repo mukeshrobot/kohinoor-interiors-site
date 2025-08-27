@@ -155,24 +155,29 @@ const Contact = () => {
                   <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
                 <Button 
+                  asChild
                   variant="outline" 
                   size="lg" 
                   className="px-10 py-5 text-xl font-bold border-2 border-white/50 text-white hover:bg-white/20 hover:border-white/80 backdrop-blur-sm transition-all duration-300 hover:scale-110 group bg-white/5"
                 >
-                  <Phone className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-300" />
-                  Call Now
-                  <Heart className="w-6 h-6 ml-3 group-hover:scale-110 transition-transform duration-300" />
+                  <a href="tel:+919866652824">
+                    <span className="inline-flex items-center">
+                      <Phone className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform duration-300" />
+                      Call Now
+                      <Heart className="w-6 h-6 ml-3 group-hover:scale-110 transition-transform duration-300" />
+                    </span>
+                  </a>
                 </Button>
               </div>
 
               {/* Enhanced Floating Stats */}
               <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 animate-slide-in-up delay-600">
                 <div className="glass rounded-2xl p-6 text-center group hover:scale-105 transition-all duration-300">
-                  <div className="text-3xl font-bold text-accent mb-2">500+</div>
+                  <div className="text-3xl font-bold text-accent mb-2">50+</div>
                   <div className="text-white/80 text-sm">Projects Completed</div>
                 </div>
                 <div className="glass rounded-2xl p-6 text-center group hover:scale-105 transition-all duration-300">
-                  <div className="text-3xl font-bold text-accent mb-2">8+</div>
+                  <div className="text-3xl font-bold text-accent mb-2">5+</div>
                   <div className="text-white/80 text-sm">Years Experience</div>
                 </div>
                 <div className="glass rounded-2xl p-6 text-center group hover:scale-105 transition-all duration-300">
@@ -184,7 +189,7 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Enhanced Owner Profile Section */}
+        {/* Company Overview Section (profile image removed) */}
         <section className="py-32 bg-gradient-to-br from-white via-blue-50/30 to-white relative overflow-hidden">
           {/* Enhanced Background Pattern */}
           <div className="absolute inset-0 opacity-5">
@@ -194,63 +199,9 @@ const Contact = () => {
           
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-7xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 items-center">
-                {/* Enhanced Owner Image */}
-                <div className="lg:col-span-1 flex justify-center lg:justify-start">
-                  <div className="relative group">
-                    <div className="w-80 h-80 rounded-3xl overflow-hidden shadow-2xl shadow-accent/30 relative transform transition-all duration-700 group-hover:scale-105 group-hover:shadow-3xl">
-                      <img
-                        src="/profile.jpg"
-                        alt="Kohinoor Interiors Owner"
-                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          const fallback = target.nextElementSibling as HTMLElement;
-                          if (fallback) fallback.style.display = 'flex';
-                        }}
-                      />
-                      {/* Fallback if image doesn't load */}
-                      <div className="w-full h-full bg-gradient-to-br from-accent/20 to-accent/40 flex items-center justify-center" style={{ display: 'none' }}>
-                        <div className="text-center">
-                          <div className="w-24 h-24 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                          </div>
-                          <p className="text-primary font-semibold">Owner Profile</p>
-                        </div>
-                      </div>
-                      
-                      {/* Enhanced Managing Director Label */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent pt-16 pb-8">
-                        <div className="text-center">
-                          <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-accent via-yellow-400 to-accent rounded-full shadow-2xl border-2 border-white/20 backdrop-blur-sm group-hover:scale-105 transition-transform duration-300">
-                            <div className="w-2 h-2 bg-white rounded-full mr-3 animate-pulse"></div>
-                            <span className="text-white font-bold text-lg tracking-wide">Managing Director</span>
-                            <div className="w-2 h-2 bg-white rounded-full ml-3 animate-pulse"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Enhanced Decorative Elements */}
-                    <div className="absolute -top-8 -right-8 w-16 h-16 bg-gradient-to-br from-accent to-yellow-400 rounded-full opacity-90 animate-bounce shadow-glow"></div>
-                    <div className="absolute -bottom-8 -left-8 w-12 h-12 bg-gradient-to-br from-blue-500 to-accent rounded-full opacity-80 animate-bounce delay-300 shadow-glow"></div>
-                    <div className="absolute top-1/2 -left-10 w-8 h-8 bg-gradient-to-br from-accent to-pink-500 rounded-full opacity-70 animate-bounce delay-700 transform -translate-y-1/2 shadow-glow"></div>
-                    
-                    {/* Enhanced Floating Badge */}
-                    <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-white rounded-full px-6 py-3 shadow-2xl border border-accent/20 animate-float">
-                      <div className="flex items-center">
-                        <Award className="w-5 h-5 text-accent mr-2" />
-                        <span className="text-sm font-bold text-primary">8+ Years Experience</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Enhanced Company Description */}
-                <div className="lg:col-span-2 space-y-8">
+              <div className="grid grid-cols-1 gap-20 items-center">
+                {/* Company Description */}
+                <div className="space-y-8">
                   <div className="text-center lg:text-left">
                     <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-accent/10 to-blue-500/10 rounded-full border border-accent/20 mb-8">
                       <Star className="w-5 h-5 text-accent mr-2 animate-pulse" />
@@ -295,7 +246,7 @@ const Contact = () => {
                       <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-accent rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-gold">
                         <Award className="w-10 h-10 text-white" />
                       </div>
-                      <div className="text-4xl font-bold text-accent mb-3">8+</div>
+                      <div className="text-4xl font-bold text-accent mb-3">5+</div>
                       <div className="text-sm text-muted-foreground font-medium">Years Experience</div>
                     </div>
                     
@@ -474,7 +425,8 @@ const Contact = () => {
                         </div>
                         <div>
                           <h4 className="font-bold text-primary text-xl mb-2">Phone</h4>
-                          <p className="text-xl text-muted-foreground font-medium">+ 91 9866652824</p>
+                          <a href="tel:+919866652824" className="text-xl text-muted-foreground font-medium hover:text-accent transition-colors">+91 9866652824</a>
+                          <a href="https://wa.me/919866652824" target="_blank" rel="noopener noreferrer" className="text-accent underline text-base">WhatsApp us</a>
                           <p className="text-sm text-muted-foreground">Mon-Sat: 9:30 AM - 6:00 PM</p>
                         </div>
                       </div>
@@ -485,7 +437,7 @@ const Contact = () => {
                         </div>
                         <div>
                           <h4 className="font-bold text-primary text-xl mb-2">Email</h4>
-                          <p className="text-xl text-muted-foreground font-medium">kohinoorinteriors09@gmail.com</p>
+                          <p className="text-base md:text-xl text-muted-foreground break-all whitespace-normal max-w-full">kohinoorinteriors09@gmail.com</p>
                           <p className="text-sm text-muted-foreground">We'll respond within 24 hours</p>
                         </div>
                       </div>
@@ -520,7 +472,7 @@ const Contact = () => {
                 <Card className="card-elegant border-0 bg-white/90 backdrop-blur-sm rounded-3xl overflow-hidden group hover:shadow-3xl transition-all duration-700">
                   <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   <CardContent className="p-0 relative z-10">
-                    <div className="h-80 bg-muted rounded-2xl overflow-hidden">
+                    <div className="h-[560px] md:h-[640px] bg-muted rounded-2xl overflow-hidden">
                       <GoogleMap />
                     </div>
                   </CardContent>
@@ -645,12 +597,15 @@ const Contact = () => {
                     Get Started Today
                   </Button>
                   <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="px-10 py-5 text-xl font-bold border-2 border-white/50 text-white hover:bg-white/20 hover:border-white/80 backdrop-blur-sm transition-all duration-300 hover:scale-110 group bg-white/5"
-                >
-                    <Phone className="w-5 h-5 mr-2" />
-                    Call Us Now
+                    asChild
+                    variant="outline" 
+                    size="lg" 
+                    className="px-10 py-5 text-xl font-bold border-2 border-white/50 text-white hover:bg-white/20 hover:border-white/80 backdrop-blur-sm transition-all duration-300 hover:scale-110 group bg-white/5"
+                  >
+                    <a href="tel:+919866652824" className="inline-flex items-center">
+                      <Phone className="w-5 h-5 mr-2" />
+                      Call Us Now
+                    </a>
                   </Button>
                 </div>
               </div>

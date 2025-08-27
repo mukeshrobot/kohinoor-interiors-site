@@ -66,10 +66,10 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-accent">Contact Info</h3>
             <div className="space-y-3">
-              <div className="flex items-center space-x-3 text-gray-300">
+              <a href="tel:+919866652824" className="flex items-center space-x-3 text-gray-300 hover:text-accent transition-colors">
                 <Phone size={18} />
-                <span>+ 91 9866652824</span>
-              </div>
+                <span>+91 9866652824</span>
+              </a>
               <div className="flex items-center space-x-3 text-gray-300">
                 <Mail size={18} />
                 <span>kohinoorinteriors09@gmail.com</span>

@@ -26,7 +26,7 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? "bg-background/95 backdrop-blur-md shadow-elegant" : "bg-transparent"
+      isScrolled ? "bg-background/95 backdrop-blur-md shadow-elegant" : "bg-black/30 backdrop-blur-sm"
     }`}>
       <div className="container mx-auto px-4 h-12">
         <div className="flex items-center justify-between h-12">
@@ -49,7 +49,7 @@ const Navigation = () => {
                 KI
               </div>
             </div>
-            <div className="text-2xl font-bold text-primary">
+            <div className={`text-2xl font-bold ${isScrolled ? "text-primary" : "text-white"}`}>
               Kohinoor <span className="text-accent">Interiors</span>
             </div>
           </Link>
@@ -61,7 +61,11 @@ const Navigation = () => {
                 key={item.name}
                 to={item.path}
                 className={`font-medium transition-colors hover:text-accent ${
-                  location.pathname === item.path ? "text-accent" : "text-foreground"
+                  location.pathname === item.path
+                    ? "text-accent"
+                    : isScrolled
+                      ? "text-foreground"
+                      : "text-white/80"
                 }`}
               >
                 {item.name}

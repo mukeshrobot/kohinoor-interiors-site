@@ -20,10 +20,13 @@ const Hero = () => {
           Transforming Spaces with{" "}
           <span className="text-accent">Excellence</span>
         </h1>
+        <div className="inline-flex items-center px-4 py-2 mb-4 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-sm md:text-base font-semibold">
+          100% Cutumized Interious By Proffesional
+        </div>
         
         <p className="text-xl md:text-2xl mb-8 text-gray-200 animate-slide-up">
           Creating stunning interiors that reflect your vision and lifestyle. 
-          Over 15 years of craftsmanship and design excellence.
+          Over 5 years of craftsmanship and design excellence.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">

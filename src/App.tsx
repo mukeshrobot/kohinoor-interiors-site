@@ -12,6 +12,10 @@ import ModernKitchen from "./pages/ProjectDetails/ModernKitchen";
 import CozyBedroom from "./pages/ProjectDetails/CozyBedroom";
 import CorporateOffice from "./pages/ProjectDetails/CorporateOffice";
 import LuxuryLobby from "./pages/ProjectDetails/LuxuryLobby";
+import Kitchen from "./pages/Kitchen";
+import Bedroom from "./pages/Bedroom";
+import Living from "./pages/Living";
+import SocialFloating from "@/components/Layout/SocialFloating";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +29,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/kitchen" element={<Kitchen />} />
+          <Route path="/bedroom" element={<Bedroom />} />
+          <Route path="/living" element={<Living />} />
           <Route path="/projects/modern-kitchen" element={<ModernKitchen />} />
           <Route path="/projects/cozy-bedroom" element={<CozyBedroom />} />
           <Route path="/projects/corporate-office" element={<CorporateOffice />} />
@@ -33,6 +40,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <SocialFloating />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

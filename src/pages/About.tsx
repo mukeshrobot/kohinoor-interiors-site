@@ -6,10 +6,10 @@ import constructionSiteImage from "@/assets/construction-site.jpg";
 
 const About = () => {
   const stats = [
-    { icon: Clock, value: "15+", label: "Years Experience" },
-    { icon: Users, value: "500+", label: "Happy Clients" },
-    { icon: Award, value: "50+", label: "Awards Won" },
-    { icon: Target, value: "1000+", label: "Projects Completed" },
+    { icon: Clock, value: "5+", label: "Years Experience" },
+    { icon: Users, value: "50+", label: "Happy Clients" },
+    { icon: Award, value: "5+", label: "Awards Won" },
+    { icon: Target, value: "50+", label: "Projects Completed" },
   ];
 
   const team = [

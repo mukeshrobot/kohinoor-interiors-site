@@ -145,8 +145,54 @@ const GoogleMap: React.FC = () => {
         <div 
           ref={mapRef} 
           className="w-full h-full rounded-2xl"
-          style={{ minHeight: '300px' }}
+          style={{ minHeight: '540px' }}
         />
+
+        {/* Overlay info card on map for mobile/desktop */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute left-4 right-4 md:left-6 md:right-auto md:max-w-xl top-4 md:top-6 pointer-events-auto">
+            <div className="bg-gradient-to-br from-white/95 to-white/80 backdrop-blur-md rounded-2xl shadow-2xl border border-accent/20 p-4 md:p-6 transition-transform hover:scale-[1.01]">
+              <div className="flex items-start gap-5 mb-5">
+                <div className="bg-gradient-to-br from-accent to-gold-light p-4 rounded-2xl shadow-gold ring-2 ring-white/60">
+                  <MapPin size={24} className="text-white" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-lg md:text-2xl font-extrabold text-primary tracking-tight mb-1">Showroom Location</p>
+                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed">{companyAddress}</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-base md:text-lg">
+                <div className="flex items-center gap-3 text-muted-foreground hover:translate-x-0.5 transition-transform">
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-accent rounded-lg flex items-center justify-center shadow-md">
+                    <Phone size={18} className="text-white" />
+                  </div>
+                  <a href="tel:+919866652824" className="font-semibold hover:text-accent transition-colors">+91 9866652824</a>
+                </div>
+                <div className="flex items-center gap-3 text-muted-foreground hover:translate-x-0.5 transition-transform">
+                  <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-accent rounded-lg flex items-center justify-center shadow-md">
+                    <Mail size={18} className="text-white" />
+                  </div>
+                  <span className="font-semibold break-all">kohinoorinteriors09@gmail.com</span>
+                </div>
+              </div>
+              <div className="mt-5 grid grid-cols-2 gap-3">
+                <a href="https://www.google.com/maps/place/Kohinoor+Interiors/@17.4823267,78.4192492,15z/data=!4m10!1m2!2m1!1sKohinoor+Interiors+Plot+No:+1%2FB-14+SV+Co-Operative+Industrial+Estate,+Balanagar+Main+Road,+Hyderabad,+Telangana+500037!3m6!1s0x3bcb91b243d1bcc3:0x69c0fb58de2d3c79!8m2!3d17.4704426!4d78.435808!15sCnZLb2hpbm9vciBJbnRlcmlvcnMgUGxvdCBObzogMS9CLTE0IFNWIENvLU9wZXJhdGl2ZSBJbmR1c3RyaWFsIEVzdGF0ZSwgQmFsYW5hZ2FyIE1haW4gUm9hZCwgSHlkZXJhYmFkLCBUZWxhbmdhbmEgNTAwMDM3kgEZaW50ZXJpb3JfYXJjaGl0ZWN0X29mZmljZeABAA!16s%2Fg%2F11xfs8xnr1?entry=ttu" target="_blank" rel="noopener noreferrer" className="btn-primary flex items-center justify-center gap-2 text-sm">
+                  <MapPin size={18} />
+                  View on Maps
+                </a>
+                <a href="https://www.google.com/maps/dir//Kohinoor+Interiors,+MSR+Complex,+HDFC+Bank,+SVCIE,+Balanagar,+Hyderabad,+Telangana/@17.4514509,78.3468775,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bcb91b243d1bcc3:0x69c0fb58de2d3c79!2m2!1d78.435808!2d17.4704426!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="btn-outline flex items-center justify-center gap-2 text-sm">
+                  <Navigation size={18} />
+                  Get Directions
+                </a>
+              </div>
+              <div className="mt-3 hidden md:flex items-center gap-3 text-xs text-muted-foreground">
+                <span className="px-2 py-1 rounded-full bg-accent/10 border border-accent/20">OpenStreetMap</span>
+                <span className="px-2 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">Bing Maps</span>
+                <span className="px-2 py-1 rounded-full bg-purple-500/10 border border-purple-500/20">Apple Maps</span>
+              </div>
+            </div>
+          </div>
+        </div>
         
         {/* Enhanced Map Overlay Controls */}
         <div className="absolute top-4 right-4 flex flex-col gap-3">
@@ -275,7 +321,7 @@ const GoogleMap: React.FC = () => {
             </div>
             <div className="flex gap-2">
               <button className="w-6 h-6 bg-accent/20 rounded-lg flex items-center justify-center hover:bg-accent/30 transition-colors duration-300">
-                <Phone size={12} className="text-accent" />
+                <Phone onClick={() => window.open('tel:+919866652824', '_blank')} size={12} className="text-accent" />
               </button>
               <button className="w-6 h-6 bg-accent/20 rounded-lg flex items-center justify-center hover:bg-accent/30 transition-colors duration-300">
                 <Mail size={12} className="text-accent" />
