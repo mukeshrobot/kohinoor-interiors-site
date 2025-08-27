@@ -15,16 +15,16 @@ const Hero = () => {
       <div className="absolute inset-0 gradient-overlay" />
       
       {/* Content */}
-      <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-          Transforming Spaces with{" "}
-          <span className="text-accent">Excellence</span>
+      <div className="relative z-10 text-center mt-1 text-white max-w-4xl mx-auto px-4">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in leading-tight">
+          <div className="mb-2">Transforming Spaces</div>
+          <div className="text-accent">with Excellence</div>
         </h1>
-        <div className="inline-flex items-center px-4 py-2 mb-4 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-sm md:text-base font-semibold">
+        <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-sm md:text-base font-semibold">
           100% Cutumized Interious By Proffesional
         </div>
         
-        <p className="text-xl md:text-2xl mb-8 text-gray-200 animate-slide-up">
+        <p className="text-lg md:text-xl lg:text-2xl mb-8 text-gray-200 animate-slide-up leading-relaxed">
           Creating stunning interiors that reflect your vision and lifestyle. 
           Over 5 years of craftsmanship and design excellence.
         </p>

@@ -97,12 +97,12 @@ const GoogleMap: React.FC = () => {
                 ${companyAddress}
               </span>
             </div>
-            <div style="display: flex; align-items: center; margin-bottom: 8px;">
-              <span style="margin-right: 8px;">📞</span>
+            <div style="display: flex; align-items: center; margin-bottom: 12px;">
+              <span style="margin-right: 12px; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; font-size: 18px;">📞</span>
               <span style="color: #374151; font-size: 14px;">+91 9866652824</span>
             </div>
             <div style="display: flex; align-items: center;">
-              <span style="margin-right: 8px;">✉️</span>
+              <span style="margin-right: 12px; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; font-size: 18px;">✉️</span>
               <span style="color: #374151; font-size: 14px;">kohinoorinteriors09@gmail.com</span>
             </div>
           </div>

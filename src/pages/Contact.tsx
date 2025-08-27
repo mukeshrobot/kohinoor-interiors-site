@@ -238,7 +238,7 @@ const Contact = () => {
                       <div className="w-20 h-20 bg-gradient-to-br from-accent to-yellow-400 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-gold">
                         <CheckCircle className="w-10 h-10 text-white" />
                       </div>
-                      <div className="text-4xl font-bold text-accent mb-3">500+</div>
+                      <div className="text-4xl font-bold text-accent mb-3">50+</div>
                       <div className="text-sm text-muted-foreground font-medium">Projects Completed</div>
                     </div>
                     
@@ -425,8 +425,12 @@ const Contact = () => {
                         </div>
                         <div>
                           <h4 className="font-bold text-primary text-xl mb-2">Phone</h4>
-                          <a href="tel:+919866652824" className="text-xl text-muted-foreground font-medium hover:text-accent transition-colors">+91 9866652824</a>
-                          <a href="https://wa.me/919866652824" target="_blank" rel="noopener noreferrer" className="text-accent underline text-base">WhatsApp us</a>
+                          <div className="flex items-center gap-4 flex-wrap">
+                            <a href="tel:+919866652824" className="text-xl text-muted-foreground font-medium hover:text-accent transition-colors">+91 9866652824</a>
+                            <a href="https://wa.me/919866652824" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500 text-white text-sm hover:bg-green-600 transition-colors">
+                              <span>WhatsApp us</span>
+                            </a>
+                          </div>
                           <p className="text-sm text-muted-foreground">Mon-Sat: 9:30 AM - 6:00 PM</p>
                         </div>
                       </div>
