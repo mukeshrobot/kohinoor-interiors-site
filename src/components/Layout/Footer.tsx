@@ -31,7 +31,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300">
-              Transforming spaces with excellence. Over 15 years of experience in creating stunning interiors.
+              Transforming spaces with excellence. Over 5+ years of experience in creating stunning interiors.
             </p>
             <div className="flex space-x-4">
               <Facebook size={20} className="text-gray-300 hover:text-accent cursor-pointer transition-colors" />

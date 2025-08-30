@@ -16,7 +16,7 @@ const About = () => {
     {
       name: "Muralidhar Reddy",
       role: "Founder & Lead Designer",
-      description: "With over 15 years of experience in interior design and construction management.",
+      description: "With over 5+ years of experience in interior design and construction management.",
     },
     {
       name: "Suma M",
@@ -43,7 +43,7 @@ const About = () => {
                 About <span className="text-accent">Kohinoor Interiors</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                For over 15 years, Kohinoor Interiors has been at the forefront of innovative 
+                For over 5+ years, Kohinoor Interiors has been at the forefront of innovative 
                 interior design and construction. We believe that every space tells a story, 
                 and our mission is to help you tell yours through exceptional design and craftsmanship.
               </p>
