@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, MessageCircle, Phone } from "lucide-react";
+import { MessageCircle, Phone } from "lucide-react";
 
 const SocialFloating = () => {
   return (
@@ -19,33 +19,6 @@ const SocialFloating = () => {
           className="w-12 h-12 rounded-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center shadow-lg transition-colors"
         >
           <MessageCircle className="w-6 h-6" />
-        </a>
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-          className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white flex items-center justify-center shadow-lg transition-colors"
-        >
-          <Instagram className="w-6 h-6" />
-        </a>
-        <a
-          href="https://facebook.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Facebook"
-          className="w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-lg transition-colors"
-        >
-          <Facebook className="w-6 h-6" />
-        </a>
-        <a
-          href="https://linkedin.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className="w-12 h-12 rounded-full bg-sky-600 hover:bg-sky-700 text-white flex items-center justify-center shadow-lg transition-colors"
-        >
-          <Linkedin className="w-6 h-6" />
         </a>
         <a
           href="tel:+919866652824"

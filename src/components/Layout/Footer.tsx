@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -33,11 +33,6 @@ const Footer = () => {
             <p className="text-gray-300">
               Transforming spaces with excellence. Over 5+ years of experience in creating stunning interiors.
             </p>
-            <div className="flex space-x-4">
-              <Facebook size={20} className="text-gray-300 hover:text-accent cursor-pointer transition-colors" />
-              <Instagram size={20} className="text-gray-300 hover:text-accent cursor-pointer transition-colors" />
-              <Linkedin size={20} className="text-gray-300 hover:text-accent cursor-pointer transition-colors" />
-            </div>
           </div>
 
           {/* Quick Links */}

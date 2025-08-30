@@ -11,8 +11,8 @@ const GoogleMap: React.FC = () => {
 
   return (
     <div className="h-full flex flex-col">
-      {/* Enhanced Interactive Map with Google Maps iframe */}
-      <div className="flex-1 relative bg-muted rounded-2xl overflow-hidden shadow-elegant group hover:shadow-hover transition-all duration-500">
+               {/* Enhanced Interactive Map with Google Maps iframe */}
+         <div className="flex-1 relative rounded-2xl overflow-hidden group transition-all duration-500">
         {/* Google Maps iframe */}
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1234567890123!2d78.435808!3d17.4704426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91b243d1bcc3%3A0x69c0fb58de2d3c79!2sKohinoor%20Interiors!5e0!3m2!1sen!2sin!4v1234567890123!5m1!1e1"
@@ -59,10 +59,10 @@ const GoogleMap: React.FC = () => {
         </div>
       </div>
       
-      {/* Enhanced Company Information and Actions */}
-      <div className="mt-6 space-y-4 m-3">
-        {/* Enhanced Contact Info */}
-        <div className="card-elegant p-6 bg-gradient-to-br from-white/90 to-blue-50/30">
+               {/* Enhanced Company Information and Actions */}
+         <div className="mt-6 space-y-4 m-3">
+           {/* Enhanced Contact Info */}
+           <div className="p-6">
           <div className="flex items-start gap-4 mb-4">
             <div className="bg-gradient-to-br from-accent to-gold-light p-3 rounded-2xl shadow-gold group-hover:shadow-glow transition-all duration-300">
               <MapPin size={20} className="text-white" />
@@ -77,14 +77,14 @@ const GoogleMap: React.FC = () => {
           
           <div className="grid grid-cols-2 gap-4 text-xs">
             <div className="flex items-center gap-2 text-muted-foreground group">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-accent rounded-lg p-1.5 group-hover:scale-110 transition-transform duration-300">
-                <Phone size={14} className="text-white" />
+              <div className="w-8 h-8  rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Phone size={14} className="text-green-500" />
               </div>
               <span className="font-medium">+91 9866652824</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground group">
-              <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-accent rounded-lg p-1.5 group-hover:scale-110 transition-transform duration-300">
-                <Mail size={14} className="text-white" />
+            <div className="w-8 h-8  rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <Mail size={14} className="text-red-500" />
               </div>
               <span className="font-medium">kohinoorinteriors09@gmail.com</span>
             </div>
@@ -146,8 +146,8 @@ const GoogleMap: React.FC = () => {
           </a>
         </div>
 
-        {/* Enhanced Quick Actions */}
-        <div className="bg-gradient-to-r from-accent/10 to-blue-500/10 rounded-2xl p-4 border border-accent/20">
+                 {/* Enhanced Quick Actions */}
+         <div className="p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Sparkles size={16} className="text-accent animate-pulse" />
