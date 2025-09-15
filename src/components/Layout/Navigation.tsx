@@ -25,13 +25,13 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all p-4 duration-300 bg-white ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all p-4 duration-300 bg-white rounded-b-lg ${
       isScrolled ? "bg-background/95 backdrop-blur-md shadow-elegant" : "bg-black/30 backdrop-blur-sm"
     }`}>
-      <div className="container mx-auto px-4 h-12">
+      <div className="container mx-auto px-1 h-12 rounded-lg">
         <div className="flex items-center justify-between h-12">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center ">
             <div className="w-[110px] h-[110px] rounded-lg overflow-hidden color-white">
               <img
                 src="/logo.png"
@@ -44,10 +44,7 @@ const Navigation = () => {
                   if (fallback) fallback.style.display = 'flex';
                 }}
               />
-              {/* Fallback if image doesn't load */}
-              <div className="w-full h-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-xl" style={{ display: 'none' }}>
-                KI
-              </div>
+       
             </div>
             <div className={`text-2xl font-bold ${isScrolled ? "text-primary" : "text-primary"}`}>
               Kohinoor <span className="text-accent">Interiors</span>

@@ -1,4 +1,4 @@
-import { MessageCircle, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 
 const SocialFloating = () => {
   return (
@@ -18,7 +18,7 @@ const SocialFloating = () => {
           aria-label="WhatsApp"
           className="w-12 h-12 rounded-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center shadow-lg transition-colors"
         >
-          <MessageCircle className="w-6 h-6" />
+          <img src="/whatsapp_icon.png" alt="WhatsApp" className="w-6 h-6" />
         </a>
         <a
           href="tel:+919866652824"

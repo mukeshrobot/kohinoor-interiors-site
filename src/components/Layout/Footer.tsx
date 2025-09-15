@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-[70px] h-[70px] rounded-lg overflow-hidden shadow-sm">
+              <div className="w-[120px] h-[120px] rounded-lg overflow-hidden shadow-sm">
                 <img
                   src="/logo.png"
                   alt="Kohinoor Interiors Logo"
