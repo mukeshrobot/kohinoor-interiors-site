@@ -9,11 +9,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-lg overflow-hidden shadow-sm">
+              <div className="w-12 h-12 rounded-lg overflow-hidden shadow-sm color-white">
                 <img
                   src="/logo.png"
                   alt="Kohinoor Interiors Logo"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain bg-white"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';

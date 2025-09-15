@@ -20,9 +20,9 @@ const Hero = () => {
           <div className="mb-2">Transforming Spaces</div>
           <div className="text-accent">with Excellence</div>
         </h1>
-        <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-sm md:text-base font-semibold">
+        {/* <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-sm md:text-base font-semibold">
           100% Cutumized Interious By Proffesional
-        </div>
+        </div> */}
         
         <p className="text-lg md:text-xl lg:text-2xl mb-8 text-gray-200 animate-slide-up leading-relaxed">
           Creating stunning interiors that reflect your vision and lifestyle. 

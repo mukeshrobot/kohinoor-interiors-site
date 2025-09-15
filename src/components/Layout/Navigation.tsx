@@ -25,18 +25,18 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all p-4 duration-300 bg-white ${
       isScrolled ? "bg-background/95 backdrop-blur-md shadow-elegant" : "bg-black/30 backdrop-blur-sm"
     }`}>
       <div className="container mx-auto px-4 h-12">
         <div className="flex items-center justify-between h-12">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <div className="w-12 h-12 rounded-lg overflow-hidden shadow-sm">
+            <div className="w-[65px] h-[65px] rounded-lg overflow-hidden color-white">
               <img
                 src="/logo.png"
                 alt="Kohinoor Interiors Logo"
-                className="w-full h-full object-contain"
+                className={`w-full h-full object-contain p-2 color-white`}
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
@@ -45,11 +45,11 @@ const Navigation = () => {
                 }}
               />
               {/* Fallback if image doesn't load */}
-              <div className="w-full h-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg" style={{ display: 'none' }}>
+              <div className="w-full h-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-xl" style={{ display: 'none' }}>
                 KI
               </div>
             </div>
-            <div className={`text-2xl font-bold ${isScrolled ? "text-primary" : "text-white"}`}>
+            <div className={`text-2xl font-bold ${isScrolled ? "text-primary" : "text-primary"}`}>
               Kohinoor <span className="text-accent">Interiors</span>
             </div>
           </Link>
@@ -64,8 +64,8 @@ const Navigation = () => {
                   location.pathname === item.path
                     ? "text-accent"
                     : isScrolled
-                      ? "text-foreground"
-                      : "text-white/80"
+                      ? "text-black"
+                      : "text-black/80"
                 }`}
               >
                 {item.name}
