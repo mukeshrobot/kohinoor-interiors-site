@@ -32,7 +32,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-12">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <div className="w-[65px] h-[65px] rounded-lg overflow-hidden color-white">
+            <div className="w-[110px] h-[110px] rounded-lg overflow-hidden color-white">
               <img
                 src="/logo.png"
                 alt="Kohinoor Interiors Logo"
