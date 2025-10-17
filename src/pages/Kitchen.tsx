@@ -1,6 +1,7 @@
 import Navigation from "@/components/Layout/Navigation";
 import Footer from "@/components/Layout/Footer";
 import kitchenImg from "@/assets/project-kitchen.jpg";
+import logoImg from "../../public/logo.png";
 
 const Kitchen = () => {
   return (
@@ -11,6 +12,7 @@ const Kitchen = () => {
           <div className="container mx-auto px-4">
             <div className="relative rounded-2xl overflow-hidden shadow-elegant">
               <img src={kitchenImg} alt="Kitchen" className="w-full h-72 md:h-[460px] object-cover" />
+              <img src={logoImg} alt="Logo" className="absolute opacity-100 top-4 left-[10px] w-[100px] h-[100px] object-cover group-hover:scale-105 transition-transform duration-500 z-10" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               <h1 className="absolute bottom-6 left-6 text-white text-4xl md:text-6xl font-extrabold">Kitchen</h1>
             </div>

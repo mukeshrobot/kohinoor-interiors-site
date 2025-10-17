@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Calendar, MapPin, Users, Clock, DollarSign, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import officeImage from "@/assets/project-office.jpg";
+import logoImg from "../../../public/logo.png";
 
 const CorporateOffice = () => {
   const projectDetails = {
@@ -52,6 +53,7 @@ const CorporateOffice = () => {
             alt="Corporate Office"
             className="w-full h-full object-cover"
           />
+          <img src={logoImg} alt="Logo" className="absolute opacity-80 top-[60px] right-[0px] transform -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] object-cover group-hover:scale-105 transition-transform duration-500 z-10" />
           <div className="absolute inset-0 bg-black/50" />
           <div className="absolute inset-0 flex items-center">
             <div className="container mx-auto px-4">

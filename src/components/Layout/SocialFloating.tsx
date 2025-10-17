@@ -20,14 +20,14 @@ const SocialFloating = () => {
         >
           <img src="/whatsapp_icon.png" alt="WhatsApp" className="w-6 h-6" />
         </a>
-        <a
+        {/* <a
           href="tel:+919866652824"
           className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 text-white text-sm shadow-lg"
           aria-label="Call +91 9866652824"
         >
           <Phone className="w-4 h-4" />
           <span>+91 9866652824</span>
-        </a>
+        </a> */}
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import kitchenImage from "@/assets/project-kitchen.jpg";
 import bedroomImage from "@/assets/project-bedroom.jpg";
 import officeImage from "@/assets/project-office.jpg";
 import lobbyImage from "@/assets/project-lobby.jpg";
+import logoImg from "../../public/logo.png";
 
 const Projects = () => {
   const getProjectRoute = (title: string) => {
@@ -93,6 +94,7 @@ const Projects = () => {
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
+                    <img src={logoImg} alt="Logo" className="absolute opacity-80 top-1 left-3 w-[100px] h-[100px] object-cover group-hover:scale-105 transition-transform duration-500 z-10" />
                     <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/20 transition-colors duration-300" />
                     
                     {/* Overlay Content */}
