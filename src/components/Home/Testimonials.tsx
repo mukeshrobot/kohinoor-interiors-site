@@ -8,7 +8,7 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: "Sadhanandha Reddy",
+      name: "V.Sadhanandha Reddy",
       role: "Homeowner",
       content: "Kohinoor Interiors exceeded all our expectations! They transformed our living space into something truly magical. Their attention to detail and creative vision is absolutely outstanding. We're so grateful for their exceptional work!",
       rating: 5,

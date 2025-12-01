@@ -28,6 +28,7 @@ const Contact = () => {
   };
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,10 +55,33 @@ const Contact = () => {
     }
 
     setIsSubmitting(true);
+    setSubmissionStatus("Connecting to server...");
+
+    // Show initial toast about potential delay
+    toast({
+      title: "Sending Request...",
+      description: "Our server may take up to 60 seconds to wake up. Please be patient...",
+      duration: 5000,
+    });
+
+    // Declare timeouts outside try block so they can be cleared in catch
+    let timeoutId: NodeJS.Timeout | null = null;
+    let statusTimeout: NodeJS.Timeout | null = null;
 
     try {
+      // Create AbortController for timeout handling
+      const controller = new AbortController();
+      timeoutId = setTimeout(() => {
+        controller.abort();
+      }, 90000); // 90 second timeout to handle 50+ second cold start
+
+      // Update status message after 10 seconds to inform about server wake-up
+      statusTimeout = setTimeout(() => {
+        setSubmissionStatus("Server is waking up, this may take up to 60 seconds...");
+      }, 10000); // Show this message after 10 seconds
+
       // API endpoint for sending quote requests
-      const response = await fetch('https://kohinnor-backend-2.onrender.com/send-quote', {
+      const response = await fetch('http://localhost:3000/send-quote', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,7 +93,11 @@ const Contact = () => {
           projectType: formData.projectType || 'Not specified',
           message: formData.message,
         }),
+        signal: controller.signal,
       });
+
+      if (timeoutId) clearTimeout(timeoutId);
+      if (statusTimeout) clearTimeout(statusTimeout);
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -92,15 +120,33 @@ const Contact = () => {
         message: "",
       });
 
+      setSubmissionStatus("");
       console.log('Quote request sent successfully:', result);
 
-    } catch (error) {
+    } catch (error: any) {
       console.error('Quote request failed:', error);
-      toast({
-        title: "Quote Request Failed",
-        description: "There was an error sending your request. Please try again or contact us directly at +91 9866652824.",
-        variant: "destructive",
-      });
+      
+      // Clear any pending timeouts
+      if (timeoutId) clearTimeout(timeoutId);
+      if (statusTimeout) clearTimeout(statusTimeout);
+      
+      // Check if it's a timeout/abort error
+      if (error.name === 'AbortError' || error.message?.includes('aborted')) {
+        toast({
+          title: "Request Timeout",
+          description: "The server took too long to respond. This usually means the server is waking up. Please try again in a moment, or contact us directly at +91 9866652824.",
+          variant: "destructive",
+          duration: 10000,
+        });
+      } else {
+        toast({
+          title: "Quote Request Failed",
+          description: "There was an error sending your request. The server may be starting up. Please try again in a moment or contact us directly at +91 9866652824.",
+          variant: "destructive",
+          duration: 8000,
+        });
+      }
+      setSubmissionStatus("");
     } finally {
       setIsSubmitting(false);
     }
@@ -379,6 +425,30 @@ const Contact = () => {
                       />
                     </div>
 
+                    {/* Server delay notice */}
+                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-4">
+                      <div className="flex items-start space-x-3">
+                        <Clock className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-sm font-medium text-blue-900 mb-1">Note about server response time</p>
+                          <p className="text-xs text-blue-700">
+                            Our backend server may take up to 60 seconds to respond on the first request (server wake-up time). 
+                            Please be patient and don't close this page. Subsequent requests will be faster.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Submission status message */}
+                    {submissionStatus && (
+                      <div className="mb-4 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+                        <div className="flex items-center space-x-3">
+                          <Loader2 className="w-5 h-5 text-amber-600 animate-spin" />
+                          <p className="text-sm font-medium text-amber-900">{submissionStatus}</p>
+                        </div>
+                      </div>
+                    )}
+
                     <Button 
                       type="submit" 
                       variant="gold" 
@@ -389,7 +459,7 @@ const Contact = () => {
                       {isSubmitting ? (
                         <>
                           <Loader2 className="mr-3 h-6 w-6 animate-spin" />
-                          Sending Quote Request...
+                          {submissionStatus || "Sending Quote Request..."}
                         </>
                       ) : (
                         <>
@@ -431,7 +501,7 @@ const Contact = () => {
                               <span>WhatsApp us</span>
                             </a>
                           </div>
-                          <p className="text-sm text-muted-foreground">Mon-Sat: 9:30 AM - 6:00 PM</p>
+                          <p className="text-sm text-muted-foreground">Mon-Sun: 9:30 AM - 6:00 PM</p>
                         </div>
                       </div>
 
@@ -464,8 +534,7 @@ const Contact = () => {
                         </div>
                         <div>
                           <h4 className="font-bold text-primary text-xl mb-2">Business Hours</h4>
-                          <p className="text-xl text-muted-foreground font-medium">Monday - Saturday: 9:30 AM - 6:00 PM</p>
-                          <p className="text-xl text-muted-foreground font-medium">Sunday: Closed</p>
+                          <p className="text-xl text-muted-foreground font-medium">Monday - Sunday: 9:30 AM - 6:00 PM</p>
                         </div>
                       </div>
                     </div>
