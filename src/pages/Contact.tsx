@@ -81,7 +81,7 @@ const Contact = () => {
       }, 10000); // Show this message after 10 seconds
 
       // API endpoint for sending quote requests
-      const response = await fetch('http://localhost:3000/send-quote', {
+      const response = await fetch('https://kohinnor-backend-2.onrender.com/send-quote', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
