@@ -81,10 +81,13 @@ const Contact = () => {
       }, 10000); // Show this message after 10 seconds
 
       // API endpoint for sending quote requests
-      const response = await fetch('https://kohinnor-backend-2.onrender.com/send-quote', {
+      const response = await fetch('https://kohinnor-backend-jnti65lzb-kohinoors-projects-aca757a7.vercel.app/send-quote', {
         method: 'POST',
+        mode: 'cors', // Explicitly set CORS mode
+        credentials: 'omit', // Don't send credentials to avoid CORS issues
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify({
           fullName: formData.fullName,
@@ -99,8 +102,19 @@ const Contact = () => {
       if (timeoutId) clearTimeout(timeoutId);
       if (statusTimeout) clearTimeout(statusTimeout);
 
+      // Handle different HTTP status codes
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        if (response.status === 401) {
+          throw new Error('401: Unauthorized - Server authentication failed');
+        } else if (response.status === 403) {
+          throw new Error('403: Forbidden - Access denied');
+        } else if (response.status === 404) {
+          throw new Error('404: Not Found - API endpoint not found');
+        } else if (response.status >= 500) {
+          throw new Error(`Server error: ${response.status}`);
+        } else {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
       }
 
       const result = await response.json();
@@ -138,10 +152,29 @@ const Contact = () => {
           variant: "destructive",
           duration: 10000,
         });
-      } else {
+      } 
+      // Check for CORS errors
+      else if (error.message?.includes('CORS') || error.message?.includes('Failed to fetch') || error.name === 'TypeError') {
+        toast({
+          title: "Connection Error",
+          description: "Unable to connect to the server. This may be a CORS configuration issue. Please contact us directly at +91 9866652824 or email kohinoorinteriors09@gmail.com.",
+          variant: "destructive",
+          duration: 10000,
+        });
+      }
+      // Check for 401/403 authentication errors
+      else if (error.message?.includes('401') || error.message?.includes('403')) {
+        toast({
+          title: "Authentication Error",
+          description: "The server rejected the request. Please contact us directly at +91 9866652824 or email kohinoorinteriors09@gmail.com.",
+          variant: "destructive",
+          duration: 10000,
+        });
+      }
+      else {
         toast({
           title: "Quote Request Failed",
-          description: "There was an error sending your request. The server may be starting up. Please try again in a moment or contact us directly at +91 9866652824.",
+          description: "There was an error sending your request. The server may be starting up or there's a configuration issue. Please try again in a moment or contact us directly at +91 9866652824.",
           variant: "destructive",
           duration: 8000,
         });
@@ -425,19 +458,7 @@ const Contact = () => {
                       />
                     </div>
 
-                    {/* Server delay notice */}
-                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-4">
-                      <div className="flex items-start space-x-3">
-                        <Clock className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                        <div>
-                          <p className="text-sm font-medium text-blue-900 mb-1">Note about server response time</p>
-                          <p className="text-xs text-blue-700">
-                            Our backend server may take up to 60 seconds to respond on the first request (server wake-up time). 
-                            Please be patient and don't close this page. Subsequent requests will be faster.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+
 
                     {/* Submission status message */}
                     {submissionStatus && (
