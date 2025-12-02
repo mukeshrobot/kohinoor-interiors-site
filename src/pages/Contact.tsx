@@ -81,7 +81,7 @@ const Contact = () => {
       }, 10000); // Show this message after 10 seconds
 
       // API endpoint for sending quote requests
-      const response = await fetch('https://kohinnor-backend-jnti65lzb-kohinoors-projects-aca757a7.vercel.app/send-quote', {
+      const response = await fetch('https://kohinnor-backend.vercel.app/send-quote', {
         method: 'POST',
         mode: 'cors', // Explicitly set CORS mode
         credentials: 'omit', // Don't send credentials to avoid CORS issues
